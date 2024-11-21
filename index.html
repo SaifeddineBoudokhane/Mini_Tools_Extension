@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,33 +10,54 @@
     <script src="./script.js" defer></script>
     <title>URL Customizer</title>
 </head>
+
 <body>
     <div id="container">
         <h1>Customize Your Links</h1>
-        
+
+        <!-- Link input section -->
         <div id="link-input">
             <label for="link">Enter URL:</label>
             <input type="url" name="link" id="link" placeholder="https://example.com" />
-            <button id="generate-btn" class="btn">Generate QR Code</button>
         </div>
 
-        <div id="size-input">
-            <label for="qrcode-size">Choose QR Code Size (in px):</label>
-            <input type="number" id="qrcode-size" min="100" max="600" value="200">
-        </div>
-
-        <div id="qrcode-container">
-            <div id="qrcode"></div>
-        </div>
-        <div id="download-options">
-            <label for="file-type">Choose File Type:</label>
-            <select id="file-type">
-                <option value="png">PNG</option>
-                <option value="jpeg">JPEG</option>
-                <option value="svg">SVG</option>
+        <!-- Tool selection dropdown menu -->
+        <div id="tool-selection">
+            <label for="tool-dropdown">Select a Tool:</label>
+            <select id="tool-dropdown">
+                <option value="">-- Choose a Tool --</option>
+                <option value="qrcode-section">Generate QR Code</option>
+                <!-- Add future tools here -->
             </select>
-            <button id="download-btn" class="btn">Download</button>
+            <button id="execute-btn" class="btn" disabled>Execute</button>
+        </div>
+
+        <!-- Container for all tool sections -->
+        <div id="tool-sections">
+
+            <!-- QR Code Section -->
+            <div id="qrcode-section" class="tool-section hidden">
+                <div id="size-input">
+                    <label for="qrcode-size">Choose QR Code Size (in px):</label>
+                    <input type="number" id="qrcode-size" min="100" max="600" value="200">
+                </div>
+                <div id="qrcode-container">
+                    <div id="qrcode"></div>
+                </div>
+                <div id="download-options">
+                    <label for="file-type">Choose File Type:</label>
+                    <select id="file-type">
+                        <option value="png">PNG</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="svg">SVG</option>
+                    </select>
+                    <button id="download-btn" class="btn">Download</button>
+                </div>
+            </div>
+
+            <!-- Add future tool sections here -->
         </div>
     </div>
 </body>
+
 </html>

@@ -1,82 +1,121 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* CSS Variables */
+:root {
+    --font-family: Arial, sans-serif;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 24px;
+    --color-primary: #0066cc;
+    --color-secondary: #0055a5;
+    --color-light: #f9f9f9;
+    --color-dark: #333;
+    --color-muted: #555;
+    --color-border: #ccc;
+    --color-background: #fff;
+    --color-border-dark: #ddd; 
+    --color-success: #4CAF50;   
+    --color-success-hover: #45a049; 
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 4px;
+    --padding-small: 10px;
+    --padding-medium: 20px;
+    --padding-large: 30px;
+}
+
+/* Hide elements by default */
+.hidden {
+    display: none;
 }
 
 /* Main container */
 #container {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     text-align: center;
-    padding: 20px;
-    max-width: 400px;
+    padding: var(--padding-medium);
+    width: 300px;
     margin: 0 auto;
-    background-color: #f9f9f9;
+    background-color: var(--color-light);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-hover);
 }
 
 /* Title */
 h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: var(--font-size-large);
+    color: var(--color-dark);
+    margin-bottom: var(--padding-medium);
 }
 
 /* Link input field */
 #link-input {
-    margin-bottom: 20px;
+    margin-bottom: var(--padding-medium);
 }
 
 #link-input label {
     display: block;
-    font-size: 14px;
-    color: #555;
+    font-size: var(--font-size-small);
+    color: var(--color-muted);
     margin-bottom: 5px;
 }
 
 #link-input input {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
     margin-bottom: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
 }
 
 #link-input input:focus {
     outline: none;
-    border-color: #0066cc;
+    border-color: var(--color-primary);
 }
 
 /* Button styling */
 .btn {
-    background-color: #0066cc;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 14px;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-small);
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0055a5;
+    background-color: var(--color-secondary);
+}
+
+/* Tool selection styling */
+#tool-selection {
+    margin-bottom: var(--padding-medium);
+}
+
+#tool-selection select {
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
+    border-radius: var(--border-radius);
+    margin-top: 5px;
+    width: 100%;
+}
+
+#tool-selection button {
+    margin-top: var(--padding-small);
 }
 
 /* QR Code Container */
 #qrcode-container {
     width: 200px;
     height: 200px;
-    margin: 20px auto;
+    margin: var(--padding-medium) auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border-dark);
     border-radius: 8px;
 }
 
@@ -88,69 +127,64 @@ h1 {
 
 /* Size input container */
 #size-input {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: var(--padding-medium);
+    margin-bottom: var(--padding-medium);
 }
 
 #size-input label {
-    font-size: 14px;
-    color: #555;
+    font-size: var(--font-size-small);
+    color: var(--color-muted);
     margin-bottom: 5px;
     display: block;
 }
 
 #size-input input {
-    padding: 10px;
-    font-size: 16px;
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     margin-top: 5px;
 }
 
 /* Download options container */
 #download-options {
-    margin-top: 20px;
+    margin-top: var(--padding-medium);
     text-align: center;
 }
 
 #download-options select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
+    border-radius: var(--border-radius);
     margin-top: 5px;
 }
 
 #download-options button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    margin-top: var(--padding-small);
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--font-size-medium);
     border: none;
-    border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
+    border-radius: var(--border-radius);
+    background-color: var(--color-success);
+    color: var(--color-background);
     cursor: pointer;
 }
 
 #download-options button:hover {
-    background-color: #45a049;
-}
-
-/* General button styles (for download) */
-#download-buttons button {
-    margin: 5px;
+    background-color: var(--color-success-hover);
 }
 
 /* General styling for all inputs and selects */
 #link-input input,
 #size-input input,
 #download-options select {
-    padding: 10px;
-    font-size: 16px;
+    padding: var(--padding-small);
+    font-size: var(--font-size-medium);
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     margin-top: 5px;
 }

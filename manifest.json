@@ -3,10 +3,12 @@
     "name": "URL Customizer Extension",
     "version": "1.0",
     "description": "A Chrome extension that customizes URLs by generating QR codes, shortening links, and more.",
-    "permissions": [],
+    "permissions": ["activeTab"],
     "host_permissions": [],
     "action": {
-      "default_popup": "index.html"
+        "default_popup": "index.html",
+        "default_width": 1000,
+        "default_height": 500
     }
   }
   

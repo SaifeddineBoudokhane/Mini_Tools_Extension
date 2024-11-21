@@ -1,3 +1,51 @@
+// Variables to store current active tool and section
+let currentTool = null;
+
+// Function to hide all tool sections
+function hideAllSections() {
+    const sections = document.querySelectorAll(".tool-section");
+    sections.forEach(section => section.classList.add("hidden"));
+}
+
+// Function to show the selected tool's section
+function showSection(tool) {
+    const section = document.getElementById(tool);
+    if (section) section.classList.remove("hidden");
+}
+
+// Event listener for tool selection dropdown change
+document.getElementById("tool-dropdown").addEventListener("change", function () {
+    const selectedTool = this.value;
+    const executeBtn = document.getElementById("execute-btn");
+
+    // Enable the execute button only if a tool is selected
+    if (selectedTool !== "") {
+        executeBtn.disabled = false;
+        hideAllSections(); // Hide all sections first
+        showSection(selectedTool); // Show the selected tool section
+    } else {
+        hideAllSections();
+        executeBtn.disabled = true; // Disable the execute button if no tool is selected
+    }
+});
+
+// Event listener for the execute button
+document.getElementById("execute-btn").addEventListener("click", function () {
+    const selectedTool = document.getElementById("tool-dropdown").value;
+
+    if (selectedTool === "qr-code") {
+        const url = document.getElementById("link").value;
+        const size = document.getElementById("qrcode-size").value; // Get the size input
+
+        if (url) {
+            generateQRCode(url, size);
+        } else {
+            alert("Please enter a valid URL.");
+        }
+    }
+    // Add other tool actions here in future
+});
+
 // Function to generate QR code with a specific size
 function generateQRCode(url, size) {
     // Clear previous QR code
@@ -5,7 +53,7 @@ function generateQRCode(url, size) {
     qrCodeContainer.innerHTML = "";
 
     // Create a new QR code
-    const qrCode = new QRCode(qrCodeContainer, {
+    new QRCode(qrCodeContainer, {
         text: url,
         width: size,   // Dynamically set width
         height: size,  // Dynamically set height
@@ -15,46 +63,40 @@ function generateQRCode(url, size) {
     });
 }
 
-// Function to convert canvas to a downloadable file
-function downloadCanvasAs(format, size) {
-    const canvas = document.querySelector("#qrcode canvas");
-    if (!canvas) {
-        alert("No QR code available to download.");
-        return;
-    }
-    const link = document.createElement("a");
-    link.download = `qrcode_${size}.${format}`;
-
-    if (format === "png" || format === "jpeg") {
-        link.href = canvas.toDataURL(`image/${format}`);
-    } else if (format === "svg") {
-        const svgContainer = document.querySelector("#qrcode svg");
-        if (svgContainer) {
-            const serializer = new XMLSerializer();
-            const svgBlob = new Blob([serializer.serializeToString(svgContainer)], { type: "image/svg+xml" });
-            link.href = URL.createObjectURL(svgBlob);
-        } else {
-            alert("SVG format not supported with the current QR Code library.");
-            return;
-        }
-    }
-    link.click();
-}
-
-// Event listener for the Generate button
-document.getElementById("generate-btn").addEventListener("click", function () {
+// Event listener for download button
+document.getElementById("download-btn").addEventListener("click", function () {
+    const size = document.getElementById("qrcode-size").value;
+    const fileType = document.getElementById("file-type").value;
     const url = document.getElementById("link").value;
-    const size = document.getElementById("qrcode-size").value; // Get the size input
+
     if (url) {
-        generateQRCode(url, size);
+        downloadQRCode(url, size, fileType);
     } else {
         alert("Please enter a valid URL.");
     }
 });
 
-// Event listener for the download button
-document.getElementById("download-btn").addEventListener("click", function () {
-    const size = document.getElementById("qrcode-size").value; // Get the size input
-    const fileType = document.getElementById("file-type").value; // Get the selected file type
-    downloadCanvasAs(fileType, size);
-});
+// Function to download the generated QR code
+function downloadQRCode(url, size, fileType) {
+    const qrCodeContainer = document.getElementById("qrcode");
+    const qrCodeImage = qrCodeContainer.querySelector("img");
+
+    if (qrCodeImage) {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        canvas.width = size;
+        canvas.height = size;
+        context.drawImage(qrCodeImage, 0, 0, size, size);
+
+        // Convert canvas to data URL based on selected file type
+        const dataUrl = canvas.toDataURL(`image/${fileType}`);
+
+        // Create a link element to trigger the download
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = `qrcode.${fileType}`;
+        link.click();
+    } else {
+        alert("QR code has not been generated yet.");
+    }
+}
