@@ -32,8 +32,8 @@ document.getElementById("tool-dropdown").addEventListener("change", function () 
 // Event listener for the execute button
 document.getElementById("execute-btn").addEventListener("click", function () {
     const selectedTool = document.getElementById("tool-dropdown").value;
-
-    if (selectedTool === "qr-code") {
+    //for QR code section
+    if (selectedTool === "qrcode-section") {
         const url = document.getElementById("link").value;
         const size = document.getElementById("qrcode-size").value; // Get the size input
 
