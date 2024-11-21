@@ -1,2 +1,2 @@
-# URL_Customizer_Extension
-A Chrome extension that customizes URLs by generating QR codes, shortening links, and more.
+# Mini_Tools_Extension
+A Chrome extension that has simple usefull tools like generating QR codes and more.
