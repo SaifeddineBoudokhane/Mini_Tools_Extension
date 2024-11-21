@@ -1,0 +1,18 @@
+/* Container for the QR code */
+#qrcode-container {
+    width: 150px; /* Desired visible width */
+    height: 150px; /* Desired visible height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow */
+    position: relative;
+    border: 1px solid #ddd; /* Optional: add a border */
+}
+
+/* Scaling the canvas element inside */
+#qrcode-container img {
+    width: 100%; /* Scale down to container size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Avoid inline gaps */
+}

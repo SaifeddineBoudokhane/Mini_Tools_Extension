@@ -14,7 +14,15 @@
     <div id="link-input">
         <p>Link :</p>
         <input type="url" name="link" id="link" placeholder="Enter a URL">
+        <button id="generate-btn">Generate QR Code</button>
     </div>
-    <div id="qrcode"></div>
+    <div id="qrcode-container">
+        <div id="qrcode"></div>
+    </div>    
+    <div id="download-buttons" style="display: none;">
+        <button id="download-png">Download as PNG</button>
+        <button id="download-jpeg">Download as JPEG</button>
+        <button id="download-svg">Download as SVG</button>
+    </div>
 </body>
 </html>
