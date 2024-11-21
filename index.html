@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./libs/qrcode.min.js"></script>
     <script src="./script.js" defer></script>
     <title>URL Customizer</title>
 </head>
 <body>
-    
+    <h1>Customize your Links</h1>
+    <div id="link-input">
+        <p>Link :</p>
+        <input type="url" name="link" id="link" placeholder="Enter a URL">
+    </div>
+    <div id="qrcode"></div>
 </body>
 </html>
