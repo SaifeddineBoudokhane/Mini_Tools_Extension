@@ -10,19 +10,32 @@
     <title>URL Customizer</title>
 </head>
 <body>
-    <h1>Customize your Links</h1>
-    <div id="link-input">
-        <p>Link :</p>
-        <input type="url" name="link" id="link" placeholder="Enter a URL">
-        <button id="generate-btn">Generate QR Code</button>
-    </div>
-    <div id="qrcode-container">
-        <div id="qrcode"></div>
-    </div>    
-    <div id="download-buttons" style="display: none;">
-        <button id="download-png">Download as PNG</button>
-        <button id="download-jpeg">Download as JPEG</button>
-        <button id="download-svg">Download as SVG</button>
+    <div id="container">
+        <h1>Customize Your Links</h1>
+        
+        <div id="link-input">
+            <label for="link">Enter URL:</label>
+            <input type="url" name="link" id="link" placeholder="https://example.com" />
+            <button id="generate-btn" class="btn">Generate QR Code</button>
+        </div>
+
+        <div id="size-input">
+            <label for="qrcode-size">Choose QR Code Size (in px):</label>
+            <input type="number" id="qrcode-size" min="100" max="600" value="200">
+        </div>
+
+        <div id="qrcode-container">
+            <div id="qrcode"></div>
+        </div>
+        <div id="download-options">
+            <label for="file-type">Choose File Type:</label>
+            <select id="file-type">
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+                <option value="svg">SVG</option>
+            </select>
+            <button id="download-btn" class="btn">Download</button>
+        </div>
     </div>
 </body>
 </html>
