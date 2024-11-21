@@ -24,7 +24,11 @@ document.getElementById("tool-dropdown").addEventListener("change", function () 
         hideAllSections();
     }
 });
-
+//Sections
+//
+//
+//QRCODE Section Begin
+//
 // Event listener for the generate qrcode button
 document.getElementById("generate-qrcode").addEventListener("click", function () {
         const url = document.getElementById("link").value;
@@ -85,3 +89,17 @@ function downloadQRCode(url, size, fileType) {
         link.click();
     }
 }
+//
+//
+//QRCODE Section End
+//
+
+//
+//
+//New Section Begin
+//
+
+//
+//
+//New Section End
+//
