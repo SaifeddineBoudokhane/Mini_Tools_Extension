@@ -47,10 +47,6 @@ h1 {
 }
 
 /* Link input field */
-#link-input {
-    margin-bottom: var(--padding-medium);
-}
-
 #link-input label {
     display: block;
     font-size: var(--font-size-small);
@@ -102,7 +98,7 @@ h1 {
     width: 100%;
 }
 
-#tool-selection button {
+#generate-qrcode {
     margin-top: var(--padding-small);
 }
 

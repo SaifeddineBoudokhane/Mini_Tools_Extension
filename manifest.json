@@ -1,8 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "URL Customizer Extension",
-    "version": "1.0",
-    "description": "A Chrome extension that customizes URLs by generating QR codes, shortening links, and more.",
+    "name": "Mini Tools Extension",
+    "version": "1.0.0",
+    "description": "A Chrome extension that has simple usefull tools like generating QR codes and more.",
+    "author": "Saifeddine Boudokhane",
     "permissions": ["activeTab"],
     "host_permissions": [],
     "action": {

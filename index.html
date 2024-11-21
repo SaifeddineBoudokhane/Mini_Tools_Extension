@@ -8,35 +8,35 @@
     <link rel="stylesheet" href="style.css">
     <script src="./libs/qrcode.min.js"></script>
     <script src="./script.js" defer></script>
-    <title>URL Customizer</title>
+    <title>Mini Tools For You</title>
 </head>
 
 <body>
     <div id="container">
-        <h1>Customize Your Links</h1>
-
-        <!-- Link input section -->
-        <div id="link-input">
-            <label for="link">Enter URL:</label>
-            <input type="url" name="link" id="link" placeholder="https://example.com" />
-        </div>
+        <h1>Mini Tools For You</h1>
 
         <!-- Tool selection dropdown menu -->
         <div id="tool-selection">
             <label for="tool-dropdown">Select a Tool:</label>
             <select id="tool-dropdown">
-                <option value="">-- Choose a Tool --</option>
                 <option value="qrcode-section">Generate QR Code</option>
+                <option value="Coming-Soon">Coming Soon</option>
                 <!-- Add future tools here -->
             </select>
-            <button id="execute-btn" class="btn" disabled>Execute</button>
         </div>
 
         <!-- Container for all tool sections -->
         <div id="tool-sections">
 
             <!-- QR Code Section -->
-            <div id="qrcode-section" class="tool-section hidden">
+            <div id="qrcode-section" class="tool-section">
+                <!-- Link input section -->
+                <div id="link-input">
+                    <label for="link">Enter URL:</label>
+                    <input type="url" name="link" id="link" placeholder="https://example.com" />
+                </div>
+                <!-- Generate QrCode section -->
+                <button id="generate-qrcode" class="btn">Generate</button>
                 <div id="size-input">
                     <label for="qrcode-size">Choose QR Code Size (in px):</label>
                     <input type="number" id="qrcode-size" min="100" max="600" value="200">

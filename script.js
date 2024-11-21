@@ -16,33 +16,22 @@ function showSection(tool) {
 // Event listener for tool selection dropdown change
 document.getElementById("tool-dropdown").addEventListener("change", function () {
     const selectedTool = this.value;
-    const executeBtn = document.getElementById("execute-btn");
 
-    // Enable the execute button only if a tool is selected
-    if (selectedTool !== "") {
-        executeBtn.disabled = false;
+    if (selectedTool !== "Coming-Soon") {
         hideAllSections(); // Hide all sections first
         showSection(selectedTool); // Show the selected tool section
     } else {
         hideAllSections();
-        executeBtn.disabled = true; // Disable the execute button if no tool is selected
     }
 });
 
-// Event listener for the execute button
-document.getElementById("execute-btn").addEventListener("click", function () {
-    const selectedTool = document.getElementById("tool-dropdown").value;
-    //for QR code section
-    if (selectedTool === "qrcode-section") {
+// Event listener for the generate qrcode button
+document.getElementById("generate-qrcode").addEventListener("click", function () {
         const url = document.getElementById("link").value;
         const size = document.getElementById("qrcode-size").value; // Get the size input
-
         if (url) {
             generateQRCode(url, size);
-        } else {
-            alert("Please enter a valid URL.");
         }
-    }
     // Add other tool actions here in future
 });
 
@@ -71,8 +60,6 @@ document.getElementById("download-btn").addEventListener("click", function () {
 
     if (url) {
         downloadQRCode(url, size, fileType);
-    } else {
-        alert("Please enter a valid URL.");
     }
 });
 
@@ -96,7 +83,5 @@ function downloadQRCode(url, size, fileType) {
         link.href = dataUrl;
         link.download = `qrcode.${fileType}`;
         link.click();
-    } else {
-        alert("QR code has not been generated yet.");
     }
 }
