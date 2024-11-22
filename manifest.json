@@ -4,8 +4,8 @@
     "version": "1.0.0",
     "description": "A Chrome extension that has simple usefull tools like generating QR codes and more.",
     "author": "Saifeddine Boudokhane",
-    "permissions": ["activeTab"],
-    "host_permissions": [],
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["<all_urls>"],
     "action": {
         "default_popup": "index.html",
         "default_width": 1000,

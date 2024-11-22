@@ -184,3 +184,21 @@ h1 {
     box-shadow: var(--box-shadow);
     margin-top: 5px;
 }
+/* COLOR PICKER */
+/* Color Display Box */
+#color-display {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+  }
+
+  /* Color Code Text */
+  #color-code {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }

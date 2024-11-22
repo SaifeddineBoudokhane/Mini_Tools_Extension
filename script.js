@@ -24,6 +24,9 @@ document.getElementById("tool-dropdown").addEventListener("change", function () 
         hideAllSections();
     }
 });
+//Show the QRcode Section initially
+hideAllSections();
+showSection("qrcode-section");
 //Sections
 //
 //
@@ -96,10 +99,44 @@ function downloadQRCode(url, size, fileType) {
 
 //
 //
+//Color Picker Section Begin
+//
+// Get the button and color display elements
+const pickColorBtn = document.getElementById("pick-color");
+const colorDisplay = document.getElementById("color-display");
+const colorCode = document.getElementById("color-code");
+
+// Listen for button click
+pickColorBtn.addEventListener("click", async () => {
+try {
+    // Use the EyeDropper API (modern browsers)
+    if (!window.EyeDropper) {
+        colorCode.textContent = "Your browser does not support the EyeDropper API.";
+        return;
+    }
+
+    const eyeDropper = new EyeDropper();
+    const result = await eyeDropper.open(); // Opens the color picker
+    const color = result.sRGBHex; // Get color in HEX format
+
+    // Update UI with the picked color
+    colorDisplay.style.backgroundColor = color;
+    colorCode.textContent = color;
+} catch (error) {
+    console.error("Color picking canceled or failed:", error);
+    }
+});
+//
+//
+//Color Picker Section End
+//
+
+//
+//
 //New Section Begin
 //
 
 //
 //
-//New Section End
+//New Picker Section End
 //
