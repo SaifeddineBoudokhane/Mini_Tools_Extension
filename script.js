@@ -102,12 +102,12 @@ function downloadQRCode(url, size, fileType) {
 //Color Picker Section Begin
 //
 // Get the button and color display elements
-const pickColorBtn = document.getElementById("pick-color");
+const eyeDropperBtn = document.getElementById("pick-color");
 const colorDisplay = document.getElementById("color-display");
 const colorCode = document.getElementById("color-code");
 
 // Listen for button click
-pickColorBtn.addEventListener("click", async () => {
+eyeDropperBtn.addEventListener("click", async () => {
 try {
     // Use the EyeDropper API (modern browsers)
     if (!window.EyeDropper) {
@@ -123,7 +123,7 @@ try {
     colorDisplay.style.backgroundColor = color;
     colorCode.textContent = color;
 } catch (error) {
-    console.error("Color picking canceled or failed:", error);
+    console.error("Eye Dropper canceled or failed:", error);
     }
 });
 //
